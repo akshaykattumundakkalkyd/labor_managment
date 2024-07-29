@@ -177,10 +177,10 @@ class _RejectedBookingsState extends State<RejectedBookings> {
 
   void _clearBooking(String bookingId) async {
     try {
-      await bookings.doc(bookingId).delete();
-      print('Rejected booking cleared and removed from collection.');
+      await bookings.doc(bookingId).update({'status': 'Cleared'});
+      print('Rejected booking status updated to Cleared.');
     } catch (e) {
-      print('Error deleting booking: $e');
+      print('Error updating booking status: $e');
     }
   }
 }

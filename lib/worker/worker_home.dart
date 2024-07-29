@@ -54,7 +54,7 @@ class _WorkerHomeState extends State<WorkerHome> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Worker Home',
+          'Home',
           style: TextStyle(
               color: secondaryColor, fontSize: 25, fontWeight: FontWeight.bold),
         ),
