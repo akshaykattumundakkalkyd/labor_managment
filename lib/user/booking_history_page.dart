@@ -57,17 +57,17 @@ class _BookingHistoryPageState extends State<BookingHistoryPage> {
                     String workerName = bookingSnap?['workerName'] ?? 'N/A';
                     String workerCategory =
                         bookingSnap?['jobCategory'] ?? 'N/A';
-                    String bookingDateString =
-                        bookingSnap?['bookingDate'] ?? 'N/A';
+                    var bookingDate = bookingSnap?['bookingDate'];
 
-                    // Convert the booking date string to a DateTime object
-                    DateTime bookingDate;
-                    try {
-                      bookingDate =
-                          DateFormat('yyyy-MM-dd').parse(bookingDateString);
-                    } catch (e) {
-                      bookingDate = DateTime
-                          .now(); // Fallback to current date if parsing fails
+                    // Convert Firestore Timestamp to DateTime
+                    DateTime bookingDateTime;
+                    if (bookingDate is Timestamp) {
+                      bookingDateTime = bookingDate.toDate();
+                    } else if (bookingDate is String) {
+                      bookingDateTime =
+                          DateFormat('yyyy-MM-dd').parse(bookingDate);
+                    } else {
+                      bookingDateTime = DateTime.now(); // Fallback
                     }
 
                     return Card(
@@ -97,7 +97,7 @@ class _BookingHistoryPageState extends State<BookingHistoryPage> {
                             ),
                             const SizedBox(height: 5),
                             Text(
-                              'Booking Date: ${DateFormat('yyyy-MM-dd').format(bookingDate)}',
+                              'Booking Date: ${DateFormat('yyyy-MM-dd').format(bookingDateTime)}',
                               style: TextStyle(
                                 fontSize: 16,
                                 color: primaryColor,

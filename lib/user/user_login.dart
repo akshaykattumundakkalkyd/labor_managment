@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:labor_managment/components/user_drawer.dart';
+
 import 'package:labor_managment/constants/colors.dart';
 import 'package:labor_managment/widget/button.dart';
 import 'package:labor_managment/widget/textfield.dart';
@@ -64,7 +64,7 @@ class _UserLoginState extends State<UserLogin> {
           print('Signed in successfully.');
           // Navigate to the worker dashboard or home screen
           Navigator.pushNamedAndRemoveUntil(
-              context, '/userDashboard',(route)=> false);
+              context, '/userDashboard', (route) => false);
           _saveAuthCredentialsUser(true);
         } else {
           _showSnackbar('Login failed. Please check your credentials.');

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:labor_managment/components/user_drawer.dart';
+
 import 'package:labor_managment/constants/colors.dart';
 import 'package:labor_managment/model/worker_model.dart';
 import 'package:labor_managment/user/workers_list_page.dart';
@@ -82,7 +82,6 @@ class _CategoriesListState extends State<UserHome> {
           ),
         ],
       ),
-      drawer: const DrawerUser(),
       body: Container(
         child: ListView(
           children: <Widget>[

@@ -13,7 +13,6 @@ class UserProfile extends StatefulWidget {
 }
 
 class _UserProfileState extends State<UserProfile> {
-
   late String username = '';
   late String email = '';
   late String number = '';
@@ -46,8 +45,8 @@ class _UserProfileState extends State<UserProfile> {
       print('Error fetching user details: $e');
     }
   }
-  final FirebaseAuth _auth = FirebaseAuth.instance;
 
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   void _showLogoutDialog() {
     showDialog(
@@ -66,10 +65,7 @@ class _UserProfileState extends State<UserProfile> {
               },
             ),
             TextButton(
-              child: const Text(
-                  'Logout'
-
-              ),
+              child: const Text('Logout'),
               onPressed: () {
                 Navigator.pushNamedAndRemoveUntil(
                     context, '/roleSelection', (route) => false);
@@ -167,7 +163,7 @@ class _UserProfileState extends State<UserProfile> {
                     const SizedBox(height: 10),
                     Row(
                       children: <Widget>[
-                        const Icon(Icons.work, color: ash),
+                        const Icon(Icons.phone, color: ash),
                         const SizedBox(width: 10),
                         Text(
                           number,
@@ -178,7 +174,7 @@ class _UserProfileState extends State<UserProfile> {
                     const SizedBox(height: 10),
                     Row(
                       children: <Widget>[
-                        const Icon(Icons.timer, color: ash),
+                        const Icon(Icons.location_city, color: ash),
                         const SizedBox(width: 10),
                         Text(
                           address,
@@ -191,30 +187,30 @@ class _UserProfileState extends State<UserProfile> {
               ),
             ),
             const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () async {
-                var updatedData =
-                await Navigator.pushNamed(context, '/editWorker');
-                if (updatedData != null && updatedData is Map) {
-                  setState(() {
-                    username = updatedData['userName'] as String;
-                    email = updatedData['email'] as String;
-                    number = updatedData['number'] as String;
-                    address = updatedData['address'] as String;
-                  });
-                }
-              },
-              child: const Text('Edit Profile'),
-              style: ElevatedButton.styleFrom(
-                foregroundColor: primaryColor,
-                backgroundColor: secondaryColor,
-                padding:
-                const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-              ),
-            ),
+            // ElevatedButton(
+            //   onPressed: () async {
+            //     var updatedData =
+            //         await Navigator.pushNamed(context, '/editWorker');
+            //     if (updatedData != null && updatedData is Map) {
+            //       setState(() {
+            //         username = updatedData['userName'] as String;
+            //         email = updatedData['email'] as String;
+            //         number = updatedData['number'] as String;
+            //         address = updatedData['address'] as String;
+            //       });
+            //     }
+            //   },
+            //   child: const Text('Edit Profile'),
+            //   style: ElevatedButton.styleFrom(
+            //     foregroundColor: primaryColor,
+            //     backgroundColor: secondaryColor,
+            //     padding:
+            //         const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+            //     shape: RoundedRectangleBorder(
+            //       borderRadius: BorderRadius.circular(10),
+            //     ),
+            //   ),
+            // ),
           ],
         ),
       ),
