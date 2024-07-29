@@ -220,7 +220,7 @@ class _WorkerProfileState extends State<WorkerProfile> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Worker Profile',
+          'Profile',
           style: TextStyle(
               fontWeight: FontWeight.bold, color: secondaryColor, fontSize: 25),
         ),

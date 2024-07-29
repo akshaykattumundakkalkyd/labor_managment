@@ -65,12 +65,14 @@ class _AdminLoginPageState extends State<AdminLoginPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    'Login As Admin',
-                    style: TextStyle(
-                      color: secondaryColor,
-                      fontSize: 35,
-                      fontWeight: FontWeight.bold,
+                  Center(
+                    child: const Text(
+                      'Login As Admin',
+                      style: TextStyle(
+                        color: secondaryColor,
+                        fontSize: 35,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                   const SizedBox(height: 40),

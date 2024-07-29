@@ -177,10 +177,10 @@ class _AcceptedBookingsState extends State<AcceptedBookings> {
 
   void _completeBooking(String bookingId) async {
     try {
-      await bookings.doc(bookingId).delete();
-      print('Booking marked as completed and removed from collection.');
+      await bookings.doc(bookingId).update({'status': 'Completed'});
+      print('Booking marked as completed.');
     } catch (e) {
-      print('Error deleting booking: $e');
+      print('Error updating booking status: $e');
     }
   }
 }
