@@ -8,12 +8,17 @@ class RoleSelectionPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'Job Junction',
-              style: TextStyle(
-                fontSize: 36,
-                fontWeight: FontWeight.bold,
-                color: Theme.of(context).hintColor,
+            GestureDetector(
+              onDoubleTap: () {
+                Navigator.pushNamed(context, '/adminLogin');
+              },
+              child: Text(
+                'Job Junction',
+                style: TextStyle(
+                  fontSize: 36,
+                  fontWeight: FontWeight.bold,
+                  color: Theme.of(context).hintColor,
+                ),
               ),
             ),
             SizedBox(height: 54),
